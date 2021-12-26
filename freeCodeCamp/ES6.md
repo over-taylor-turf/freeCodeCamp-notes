@@ -123,3 +123,22 @@ const { johnDoe: { age: userAge, email: userEmail }} = user;
 userAge // 34
 userEmail // 'johnDoe@freeCodeCamp.com'
 ```
+
+## ✨ Array Destructuring 
+
+Similarly, we can also destructure arrays into variables. 
+```js
+const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+
+console.log(a, b, c);
+// Output: 1, 2, 5
+```
+
+In some situations involving array destructuring, we might want to collect the rest of the elements into a separate array:
+```js
+const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
+console.log(a, b); // 1, 2
+console.log(arr); // [3, 4, 5, 7]
+```
+**Note**: The rest element only works correctly as the last variable in the list.
+
