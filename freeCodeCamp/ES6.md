@@ -142,3 +142,19 @@ console.log(arr); // [3, 4, 5, 7]
 ```
 **Note**: The rest element only works correctly as the last variable in the list.
 
+## ✨ Use class Syntax to Define a Constructor Function
+
+The `class` keyword declares a new `function`, to which a `constructor` is added. This `constructor` is invoked when new is called to create a new `object`.
+
+The `constructor` method is a special method for creating and initializing an object created with a class.
+
+```js
+class SpaceShuttle {
+  constructor(targetPlanet) {
+    this.targetPlanet = targetPlanet;
+  }
+}
+const zeus = new SpaceShuttle('Jupiter');
+```
+**Note**: UpperCamelCase should be used by convention for ES6 class names, as in `SpaceShuttle` used above.
+

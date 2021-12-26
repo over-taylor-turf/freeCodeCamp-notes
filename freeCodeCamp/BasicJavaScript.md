@@ -103,7 +103,77 @@ do {
 // Output:  [0, 1, 2, 3, 4]
 ```
 
-## ✨ Replace Loops using Recursion
+## ✨ Random Numbers
+
+JavaScript has a `Math.random()` function that generates a random decimal number between 0 (inclusive) and 1 (exclusive). Thus `Math.random()` can return a 0 but never return a 1.
+
+It's great that we can generate random decimal numbers, but it's even more useful if we use it to generate random whole numbers.
+
+Remember that `Math.random()` can never quite return a `1` and, because we're rounding down, it's impossible to actually get `20`. This technique will give us a whole number between `0` and `19`. ⬇️
+
+```js
+Math.floor(Math.random() * 20);
+```
+
+Instead of generating a random whole number between zero and a given number like we did before, we can generate a random whole number that falls within a range of two specific numbers.
+
+To do this, we'll define a minimum number `min` and a maximum number `max`. ⬇️
+
+```js
+Math.floor(Math.random() * (max - min + 1)) + min
+```
+
+## ✨ Use the Ternary Operator 
+
+The conditional operator, also called the ternary operator, can be used as a one line if-else expression.
+
+The syntax is `a ? b : c`, where `a` is the condition, `b` is the code to run when the condition returns `true`, and `c` is the code to run when the condition returns `false`.
+
+The following function uses an if/else statement to check a condition:
+```js
+function findGreater(a, b) {
+  if(a > b) {
+    return "a is greater";
+  }
+  else {
+    return "b is greater or equal";
+  }
+}
+```
+
+This can be re-written using the ternary operator:
+```js
+function findGreater(a, b) {
+  return a > b ? "a is greater" : "b is greater or equal";
+}
+```
+
+## ✨ Chaining Mulitple Ternary Operators
+
+⬇️ The following function uses if, else if, and else statements to check multiple conditions:
+```js
+function findGreaterOrEqual(a, b) {
+  if (a === b) {
+    return "a and b are equal";
+  }
+  else if (a > b) {
+    return "a is greater";
+  }
+  else {
+    return "b is greater";
+  }
+}
+```
+⬇️ It can be re-written using multiple ternary operators:
+```js
+function findGreaterOrEqual(a, b) {
+  return (a === b) ? "a and b are equal" 
+    : (a > b) ? "a is greater" 
+    : "b is greater";
+}
+```
+
+## ⁉️ Replace Loops using Recursion
 
 Recursion is the concept that a function can be expressed in terms of itself. 
 
@@ -117,5 +187,16 @@ To help understand this, start by thinking about the following task: multiply th
       product *= arr[i];
     }
     return product;
+  }
+```
+⬆️ However, notice that `multiply(arr, n) == multiply(arr, n - 1) * arr[n - 1]`. That means you can rewrite multiply in terms of itself and never need to use a loop.
+
+```js
+function multiply(arr, n) {
+    if (n <= 0) {
+      return 1;
+    } else {
+      return multiply(arr, n - 1) * arr[n - 1];
+    }
   }
 ```
