@@ -158,3 +158,76 @@ const zeus = new SpaceShuttle('Jupiter');
 ```
 **Note**: UpperCamelCase should be used by convention for ES6 class names, as in `SpaceShuttle` used above.
 
+## ✨ Getters & Setters
+
+Getter functions are meant to simply return (get) the value of an object's private variable to the user without the user directly accessing the private variable.
+
+Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function. This change could involve calculations, or even overwriting the previous value completely.
+
+⬇️ Example: 
+```js
+class Thermostat {
+  constructor(fahrenheit) {
+    this.fahrenheit = fahrenheit;
+  }
+  // getter
+  get temperature() {
+    return (5 / 9) * (this.fahrenheit - 32);
+  }
+  // setter
+  set temperature(celsius) {
+    this.fahrenheit = (celsius * 9.0) / 5 + 32;
+  }
+}
+```
+Notice the syntax used to invoke the getter and setter. They do not even look like functions. Getters and setters are important because they hide internal implementation details.
+
+## ✨ Exporting & Importing *Named* Exports to Other Files
+
+When you export a variable or function, you can import it in another file and use it without having to rewrite the code. 
+
+⬇️ For example: 
+```js
+const add = (x, y) => {
+  return x + y;
+}
+
+export { add };
+```
+ ⬇️ You can export multiple functions by placing them all in the export statement like this: 
+```js
+export { add, subtract };
+```
+
+ ⬇️ In order to import, you need a statement like this: 
+```js
+import { add, subtract } from './math_functions.js';
+```
+**Note**: The `./` tells the import to look for the `math_functions.js` file in the same folder as the current file. The relative file path (`./`) and file extension (`.js`) are required when using import in this way.
+
+## ✨ Exporting & Importing *Default* Exports to Other Files
+
+Export a named function:
+```js
+export default function add(x, y) {
+  return x + y;
+}
+```
+
+Export an anonymous function: 
+```js
+export default function(x, y) {
+  return x + y;
+}
+```
+Usually you will use this default syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
+
+Since `export default` is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file. Additionally, you cannot use export default with `var`, `let`, or `const`.
+
+⬇️ To import a default export, you need to use a different import syntax:
+```js
+import add from './math_functions.js';
+```
+⬆️ The syntax differs in one key place. The imported value, `add`, is not surrounded by curly braces (`{}`). `add` here is simply a variable name for whatever the default export of the `math_functions.js` file is. You can use *any name* here when importing a default.
+
+## ✨ Promises
