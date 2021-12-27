@@ -78,3 +78,15 @@ catStr.match(bgRegex); // ["cat"]
 batStr.match(bgRegex); // ["bat"]
 matStr.match(bgRegex); // null
 ```
+**Note**: Using the hyphen (`-`) to match a range of characters is not limited to letters. It also works to match a range of numbers.
+
+## ✨ Negated Character Sets
+
+To create a negated character set, you place a caret character (`^`) after the opening bracket and before the characters you do not want to match.
+
+⬇️ To create a single regex that matches all characters that are *not* a number or a vowel. 
+```js
+/[^aeiou^0-9]/
+```
+
+algorithms, hashmaps, binary trees, lists/arrays, string manipulation, for loops & while loops.
