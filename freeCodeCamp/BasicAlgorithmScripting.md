@@ -76,15 +76,36 @@ function findLongestWordLength(str) {
 findLongestWordLength("The quick brown fox jumped over the lazy dog");
 ```
 
-## ✨ ____
+## ✨ Return Largest Numbers in Arrays
 
-**Directions**: ____
+**Directions**: Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays. Remember, you can iterate through an array with a simple for loop, and access each member with array syntax `arr[i]`.
 
-**Solution**: ____
+**Solution**:
+```js
+function largestOfFour(arr) {
 
-## ✨ ____
+    // initialize an empty array to hold the biggest values of the subarray 
+    let maxValuesArray = []; 
 
+    // initialize an empty array to hold the biggest values of the subarray 
+    for (let i = 0; i <= 3; i++){
 
-**Directions**: ____
+      // initialize a subarray variable
+      let subarray = arr[i]; 
+
+      // push the max values of the subarrays into the maxValuesArray
+      maxValuesArray.push((Math.max(...subarray)));
+  }
+
+   // return the maxValuesArray
+    return maxValuesArray;
+  }
+  
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+```
+
+## ✨ Confirm the Ending
+
+**Directions**: Check if a string (first argument, `str`) ends with the given target string (second argument, `target`).
 
 **Solution**: ____
