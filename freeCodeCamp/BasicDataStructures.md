@@ -89,3 +89,133 @@ greaterThanTen([2, 12, 8, 14, 80, 0, 1]);
 
 // Output: newArr = [12, 14, 80]
 ```
+
+# ✨ Objects
+
+At their most basic, objects are just collections of `key`-`value` pairs. In other words, they are pieces of data (`values`) mapped to unique identifiers called properties (`keys`). 
+
+For Example:
+```js
+const tekkenCharacter = {
+  player: 'Hwoarang',
+  fightingStyle: 'Tae Kwon Doe',
+  human: true
+};
+```
+
+## ✨ Adding to & Modifying Information to Objects 
+
+If you want to add an additional property, such as "origin", it can be done by assigning origin to the object using dot notation:
+`tekkenCharacter.origin = 'South Korea';`
+
+You can also add a property with bracket notation. Bracket notation is required if your property has a space in it or if you want to use a variable to name the property.
+`tekkenCharacter['hair color'] = 'dyed orange';`
+or
+```js
+const eyes = 'eye color';
+
+tekkenCharacter[eyes] = 'brown';
+```
+
+The original object has now been modified to look like: 
+```js
+{
+  player: 'Hwoarang',
+  fightingStyle: 'Tae Kwon Doe',
+  human: true,
+  origin: 'South Korea',
+  'hair color': 'dyed orange',
+  'eye color': 'brown'
+};
+```
+
+## ✨ Removing Information from Objects 
+
+To remove a key, we can delete it by using the `delete` keyword like this:
+`delete foods.apples;`
+
+```js
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+
+```
+
+## ✨ Check if an Object has a Property
+
+JavaScript provides us with two different ways to check if an object has a specific property. 
+
+☝️ The `hasOwnProperty()` method
+`users.hasOwnProperty('Alan');`
+
+✌️ The `in` keyword
+`'Alan' in users;`
+
+Both would return `true` if There was a user value of `Alan`.
+
+Practice Problem: Finish writing the function so that it returns `true` if the object passed to it contains all four names, `Alan`, `Jeff`, `Sarah` and `Ryan` and returns `false` otherwise.
+
+Object:
+```js
+let users = {
+  Alan: {
+    age: 27,
+    online: true
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: true
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+```
+
+Answer 1: 
+```js
+function isEveryoneHere(userObj) {
+  if (
+    userObj.hasOwnProperty("Alan") &&
+    userObj.hasOwnProperty("Jeff") &&
+    userObj.hasOwnProperty("Sarah") &&
+    userObj.hasOwnProperty("Ryan")
+  ) {
+    return true;
+  }
+  return false;
+}
+```
+
+Answer 2:
+```js
+function isEveryoneHere(userObj) {
+  return ["Alan", "Jeff", "Sarah", "Ryan"].every(name =>
+    userObj.hasOwnProperty(name)
+  );
+}
+```
+
+## ✨ Iterate Through the Keys of an Object with a for...in Statement
+
+Sometimes you may need to iterate through all the keys within an object. This requires a specific syntax in JavaScript called a for...in statement.
+
+⬆️ For our users object, this could look like:
+```js
+for (let user in users) {
+  console.log(user);
+}
+// This would log Alan, Jeff, Sarah, and Ryan - each value on its own line.
+```
+In this statement, we defined a variable `user`, and as you can see, this variable was reset during each iteration to each of the object's keys as the statement looped through the object, resulting in each user's name being printed to the console.
+
