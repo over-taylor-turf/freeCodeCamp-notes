@@ -90,3 +90,18 @@ To create a negated character set, you place a caret character (`^`) after the o
 ```
 
 algorithms, hashmaps, binary trees, lists/arrays, string manipulation, for loops & while loops.
+
+## ✨ Shortcuts
+
+➡️ `\s` returns whitespace. (This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters). You can think of it as similar to the character class `[ \r\t\f\n\v]`.
+
+➡️ `\S` returns everything that is **not** whitespace. (This pattern will not match whitespace, carriage return, tab, form feed, and new line characters). You can think of it being similar to the character class `[^ \r\t\f\n\v]`.
+
+➡️ `\d` is the shortcut to look for digit characters. This is equal to the character class `[0-9]`, which looks for a single character of any number between zero and nine.
+
+➡️ `\D` is the shortcut to look for non-digit characters. This is equal to the character class `[^0-9]`, which looks for a single character that is not a number between zero and nine.
+
+➡️ `\w` is equal to `[A-Za-z0-9_]`. This character class matches upper and lowercase letters plus numbers. Note, this character class also includes the underscore character (`_`).
+
+➡️ `\W` searches for the opposite of the `\w`. This shortcut is the same as `[^A-Za-z0-9_]`.
+
