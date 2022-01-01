@@ -1,9 +1,10 @@
-function bouncer(arr) {
-  newArray = []; 
-  for (let i = 0; i > arr.length; i++){
-    if (typeof arr[i] === true) {
-      newArray.push(arr[i]);
-    }
+function chunkArrayInGroups(arr, size) {
+  let arrayLength = arr.length;
+  let sortedArray = []; 
+  for (let i = 0; i < arrayLength; i += size) {
+    sortedArray.push(arr.slice(i, i + size));
   }
-  return newArray;
+  return sortedArray;
 }
+
+console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));

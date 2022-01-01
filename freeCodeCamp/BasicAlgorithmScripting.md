@@ -273,3 +273,95 @@ function frankenSplice(arr1, arr2, n) {
 ```
 
 ## ✨ Falsy Bouncer
+
+**Directions**: Remove all falsy values from an array. Falsy values in JavaScript are false, null, 0, "", undefined, and NaN. (Hint: Try converting each value to a Boolean).
+
+**Solution**:
+```js
+function bouncer(arr) {
+  newArray = []; 
+  for (let i = 0; i < arr.length; i++){
+    if (!!arr[i] === true) {
+      newArray.push(arr[i]);
+    }
+  }
+  return newArray;
+}
+```
+or
+
+```js
+function bouncer(arr) {
+  let newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]) newArray.push(arr[i]);
+  }
+  return newArray;
+}
+```
+
+## ✨ Where do I Belong
+
+**Directions**: Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.
+
+For example, `getIndexToIns([1,2,3,4], 1.5)` should return 1 because it is greater than 1 (index 0), but less than 2 (index 1). Likewise, `getIndexToIns([20,3,5], 19)` should return 2 because once the array has been sorted it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).
+
+**Solution**:
+```js
+function getIndexToIns(arr, num) {
+  let newArray = [...arr];
+  newArray.push(num);
+  let sortedArray = newArray.sort(function(a, b){return a-b});
+  console.log(sortedArray);
+  for (let i = 0; i < sortedArray.length; i++) {
+    if (num === sortedArray[i]) {
+      return sortedArray.indexOf(num);
+    }
+  }
+}
+
+console.log(getIndexToIns([5, 3, 20, 3], 5));
+```
+
+## ✨ Where do I Belong
+
+**Directions**: Return `true` if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+
+For example, `["hello", "Hello"]`, should return `true` because all of the letters in the second string are present in the first, ignoring case.
+
+The arguments `["hello", "hey"]` should return `false` because the string `hello` does not contain a `y`.
+
+Lastly, `["Alien", "line"]`, should return `true` because all of the letters in `line` are present in `Alien`.
+
+**Solution**:
+```js
+function mutation(arr) {
+  let testLetters = arr[1].toLowerCase();
+  let targetLetters = arr[0].toLowerCase();
+
+  for (let i = 0; i < testLetters.length; i++) {
+    if (targetLetters.indexOf(testLetters[i]) < 0) return false;
+  }
+  return true;
+}
+
+console.log(mutation(["hello", "hey"])); 
+```
+
+## ✨ Chunky Monkey
+
+**Directions**: Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+
+**Solution**:
+```js
+function chunkArrayInGroups(arr, size) {
+  let arrayLength = arr.length;
+  let sortedArray = []; 
+  for (let i = 0; i < arrayLength; i += size) {
+    sortedArray.push(arr.slice(i, i + size));
+  }
+  return sortedArray;
+}
+
+console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+```
