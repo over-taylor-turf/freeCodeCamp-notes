@@ -1,15 +1,9 @@
-function titleCase(str) {
-
-  let lowercaseString = str.toLowerCase();
-  let arrayOfWords = lowercaseString.trim().split(" ");
-  let uppercaseString = ''; 
-  let title = []; 
-  
-  for (let i = 0; i < arrayOfWords.length; i++) {
-    let uppercaseString = arrayOfWords[i].charAt(0).toUpperCase() + arrayOfWords[i].slice(1);
-    title.push(uppercaseString);
+function bouncer(arr) {
+  newArray = []; 
+  for (let i = 0; i > arr.length; i++){
+    if (typeof arr[i] === true) {
+      newArray.push(arr[i]);
+    }
   }
-  return title.join(" "); 
+  return newArray;
 }
-
-console.log(titleCase("I'm a little tea pot"));
