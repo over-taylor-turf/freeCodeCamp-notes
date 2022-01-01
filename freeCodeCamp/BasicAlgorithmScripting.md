@@ -128,3 +128,59 @@ function confirmEnding(str, target) {
 
 console.log(confirmEnding("Congratulation", "on")); 
 ```
+
+## ✨ Repeat a String Repeat a String
+
+**Directions**: Repeat a given string `str` (first argument) for `num` times (second argument). Return an empty string if `num` is not a positive number.
+
+**Solution**:
+```js
+function repeatStringNumTimes(str, num) {
+  
+  // initialize two variables, one empty and one to be filled with the repeating value
+  let emptyString = '';
+  let repeatedString = ''; 
+
+  // if the number is positive add the string to the repeatedString variable
+  if (num > 0 ) {
+
+    // loop as many times as num indicates
+    for (let i = 0; i < num; i++) {
+    repeatedString = repeatedString + str;
+    } 
+
+    // at the end of the loop, return the repeatedString 
+    return repeatedString; 
+
+    // if the number is negative return the emptyString
+  } else {
+    return emptyString; 
+  }
+}
+
+console.log(repeatStringNumTimes("*", 3));
+```
+
+## ✨ Truncate a String
+
+**Directions**: Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending.
+
+**Solution**:
+```js
+function truncateString(str, num) {
+  let stringArray = str.trim().split('');
+  let truncatedArray = []; 
+  let truncatedWord = ''; 
+  
+  if (str.length > num) { 
+  for (let i = 0; i < num; i++) {
+    truncatedArray.push(stringArray[i])
+  }
+    truncatedWord = truncatedArray.join('')
+    return truncatedWord + '...'
+    } else {
+      return str; 
+    }
+  }
+```
+
