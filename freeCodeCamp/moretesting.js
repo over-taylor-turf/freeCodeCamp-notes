@@ -1,17 +1,15 @@
-function truncateString(str, num) {
-  let stringArray = str.trim().split('');
-  let truncatedArray = []; 
-  let truncatedWord = ''; 
+function titleCase(str) {
+
+  let lowercaseString = str.toLowerCase();
+  let arrayOfWords = lowercaseString.trim().split(" ");
+  let uppercaseString = ''; 
+  let title = []; 
   
-  if (str.length > num) { 
-  for (let i = 0; i < num; i++) {
-    truncatedArray.push(stringArray[i])
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    let uppercaseString = arrayOfWords[i].charAt(0).toUpperCase() + arrayOfWords[i].slice(1);
+    title.push(uppercaseString);
   }
-  truncatedWord = truncatedArray.join('')
-  return truncatedWord + '...'
-} else {
-  return str; 
-}
+  return title.join(" "); 
 }
 
-console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8));
+console.log(titleCase("I'm a little tea pot"));

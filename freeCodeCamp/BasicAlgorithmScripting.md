@@ -121,7 +121,7 @@ function confirmEnding(str, target) {
   for (let i = 0; i < reversedTarget.length; i++) {
     comparisonArray.push(reversedString[i]); 
   }
-  // comapre the last (now first) letters with the target letters
+  // compare the last (now first) letters with the target letters
   // convert the arrays back into strings
   return comparisonArray.join("") === reversedTarget.join("") 
 }
@@ -184,3 +184,60 @@ function truncateString(str, num) {
   }
 ```
 
+## ✨ Finders Keepers
+
+**Directions**: Create a function that looks through an array `arr` and returns the first element in it that passes a 'truth test'. This means that given an element `x`, the 'truth test' is passed if func(`x`) is true. If no element passes the test, return undefined.
+
+**Solution**:
+```js
+function findElement(arr, func) {
+  let num = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let num = arr[i]; 
+    if (func(num)) {
+      return num;
+    }
+  }
+
+  return undefined;
+}
+```
+
+## ✨ Boo Who
+
+**Directions**: Check if a value is classified as a boolean primitive. Return true or false.
+
+**Solution**:
+```js
+function booWho(bool) {
+  if (typeof bool === 'boolean') {
+    return true; 
+  } else {
+    return false;
+  }
+}
+```
+
+## ✨ Title Case a Sentence
+
+**Directions**:Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case. For the purpose of this exercise, you should also capitalize connecting words like the and of.
+
+**Solution**:
+```js
+function titleCase(str) {
+
+  let lowercaseString = str.toLowerCase();
+  let arrayOfWords = lowercaseString.trim().split(" ");
+  let uppercaseString = ''; 
+  let title = []; 
+  
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    let uppercaseString = arrayOfWords[i].charAt(0).toUpperCase() + arrayOfWords[i].slice(1);
+    title.push(uppercaseString);
+  }
+  return title.join(" "); 
+}
+
+console.log(titleCase("I'm a little tea pot"));
+```
