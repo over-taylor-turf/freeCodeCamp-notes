@@ -7,7 +7,7 @@
 function reverseString(str) {
     // initialize a variable that is a copy of the original string as an array. 
     let copy = [...str];
-    
+    console.log(copy)
     // create a variable for the reversed string, currently empty. 
     let reversed = ''; 
 
@@ -87,7 +87,7 @@ function largestOfFour(arr) {
     // initialize an empty array to hold the biggest values of the subarray 
     let maxValuesArray = []; 
 
-    // initialize an empty array to hold the biggest values of the subarray 
+    // loop 4 times through subarray 
     for (let i = 0; i <= 3; i++){
 
       // initialize a subarray variable
@@ -108,4 +108,23 @@ largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 85
 
 **Directions**: Check if a string (first argument, `str`) ends with the given target string (second argument, `target`).
 
-**Solution**: ____
+**Solution**:
+```js
+function confirmEnding(str, target) {
+  // turn the original string and target into reversed arrays of the original letters
+  let reversedTarget = target.split("").reverse();
+  let reversedString = str.split("").reverse();
+
+  let comparisonArray = []; 
+
+  // use a simple for loop to iterate through the last (now first) letters as many times as the length of the target
+  for (let i = 0; i < reversedTarget.length; i++) {
+    comparisonArray.push(reversedString[i]); 
+  }
+  // comapre the last (now first) letters with the target letters
+  // convert the arrays back into strings
+  return comparisonArray.join("") === reversedTarget.join("") 
+}
+
+console.log(confirmEnding("Congratulation", "on")); 
+```

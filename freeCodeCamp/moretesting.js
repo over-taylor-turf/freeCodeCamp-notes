@@ -1,31 +1,17 @@
-// function confirmEnding(str, target) {
-//   let stringLength = str.length; 
-//   let lastLetterIndex = [stringLength-1]; 
-//   return str[lastLetterIndex] === target;
-// }
+function confirmEnding(str, target) {
+  // turn the original string and target into reversed arrays of the original letters
+  let reversedTarget = target.split("").reverse();
+  let reversedString = str.split("").reverse();
 
-// console.log(confirmEnding("Bastian", "n"));
+  let comparisonArray = []; 
 
-const test1 = {
-  Alan: {
-    online: false
-  },
-  Jeff: {
-    online: true
-  },
-  Sarah: {
-    online: false
+  // use a simple for loop to iterate through the last (now first) letters as many times as the length of the target
+  for (let i = 0; i < reversedTarget.length; i++) {
+    comparisonArray.push(reversedString[i]); 
   }
+  // comapre the last (now first) letters with the target letters
+  // convert the arrays back into strings
+  return comparisonArray.join("") === reversedTarget.join("") 
 }
 
-function countOnline(usersObj) {
-  let count = 0;
-for (let user in usersObj) {
-  if (usersObj[user]['online'] === true) {
-    count++; 
-  }
-}
-return count;
-}
-
-console.log(countOnline(test1))
+console.log(confirmEnding("Congratulation", "on")); 

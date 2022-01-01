@@ -105,3 +105,17 @@ algorithms, hashmaps, binary trees, lists/arrays, string manipulation, for loops
 
 ➡️ `\W` searches for the opposite of the `\w`. This shortcut is the same as `[^A-Za-z0-9_]`.
 
+➡️ `+` use the plus sign to look for one or more characters 
+
+➡️ `*` use the asterisk to look for zero or more characters.
+
+You can also specify the lower and upper number of patterns with quantity specifiers. Quantity specifiers are used with curly brackets. You put two numbers between the curly brackets - for the lower and upper number of patterns.
+
+For example, to match only the letter `a` appearing between 3 and 5 times in the string `ah`, your regex would be `/a{3,5}h/`. 
+
+To only specify the lower number of patterns, keep the first number followed by a comma: `/a{3,}h/`.
+
+To specify a certain number of patterns, just have that one number between the curly brackets: `/a{3}h/`.
+
+➡️ `?` You can specify the possible existence of an element with a question mark. This checks for zero or one of the preceding element. You can think of this symbol as saying the previous element is optional: `/colou?r/`.
+
