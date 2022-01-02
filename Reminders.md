@@ -1,3 +1,7 @@
+# Manipulating Data Types
+
+You have a `string`. You want to change it to... 
+
 ## String ➡️ Array of Letters
 ```js
 let string = 'string'
@@ -11,9 +15,12 @@ let newString = array.join('')
 let string = 'string one two three string end'
 let arrayOfWords = string.trim().split(" ");
     // arrayOfWords: [ 'string', 'one', 'two', 'three', 'string', 'end' ]
+
 let newNewString = arrayOfWords.join(' ')
     // newNewString: 'string one two three string end'
 ```
+
+You have an `array`. You want to change it to... 
 
 ## Array ➡️ String
 ```js
