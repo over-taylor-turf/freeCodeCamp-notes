@@ -58,7 +58,16 @@ The first argument is the current element being processed.
 The second is the index of that element. 
 The third is the array upon which the filter method was called.
 
-Method Chaining
+## `.slice()`
+
+The slice method returns a copy of certain elements of an array.
+
+The first argument gives the index of where to begin the slice.
+The second is the index for where to end the slice (and it's non-inclusive). 
+
+If the arguments are not provided, the default is to start at the beginning of the array through the end, which is an easy way to make a copy of the entire array. The slice method does not mutate the original array, but returns a new one.
+
+<!-- Method Chaining
 ```js
 const filteredList = watchList.map(movie => {
     return {
@@ -68,4 +77,43 @@ const filteredList = watchList.map(movie => {
   }).filter(movie => {
     return (movie.rating) >= 8.0;
   });
-  ```
+  ``` -->
+
+
+## `.splice()`
+
+A common pattern while working with arrays is when you want to remove items and keep the rest of the array. JavaScript offers the splice method for this, which takes arguments for the index of where to start removing items, then the number of items to remove. If the second argument is not provided, the default is to remove items through the end. However, the splice method mutates the original array it is called on. Here's an example:
+```js
+const cities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+cities.splice(3, 1);
+```
+Here splice returns the string London and deletes it from the cities array. cities will have the value ["Chicago", "Delhi", "Islamabad", "Berlin"].
+
+## `.concat()`
+
+Concatenation means to join items end to end. JavaScript offers the concat method for both strings and arrays that work in the same way. For arrays, the method is called on one, then another array is provided as the argument to concat, which is added to the end of the first array. It returns a new array and does not mutate either of the original arrays. Here's an example:
+
+`[1, 2, 3].concat([4, 5, 6]);`
+
+The returned array would be [1, 2, 3, 4, 5, 6].
+
+Compare concat to the push method. push adds an item to the end of the same array it is called on, which mutates that array. Here's an example:
+```js
+const arr = [1, 2, 3];
+arr.push([4, 5, 6]);
+```
+arr would have a modified value of `[1, 2, 3, [4, 5, 6]]`, which is not the functional programming way.
+
+## `.reduce()`
+
+The reduce method iterates over each item in an array and returns a single value (i.e. string, number, object, array). This is achieved via a callback function that is called on each iteration.
+
+The callback function accepts four arguments: 
+- The first argument is known as the accumulator, which gets assigned the return value of the callback function from the previous iteration. 
+- The second is the current element being processed. 
+- The third is the index of that element.
+- The fourth is the array upon which reduce is called.
+
+In addition to the callback function, reduce has an additional parameter which takes an initial value for the accumulator. If this second parameter is not used, then the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator.
+
+See below for an example using reduce on the users array to return the sum of all the users' ages. For simplicity, the example only uses the first and second arguments.
