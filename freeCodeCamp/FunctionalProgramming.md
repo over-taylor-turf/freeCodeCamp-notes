@@ -117,3 +117,33 @@ The callback function accepts four arguments:
 In addition to the callback function, reduce has an additional parameter which takes an initial value for the accumulator. If this second parameter is not used, then the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator.
 
 See below for an example using reduce on the users array to return the sum of all the users' ages. For simplicity, the example only uses the first and second arguments.
+
+
+## `.sort()`
+
+The sort method sorts the elements of an array according to the callback function.
+
+The sort methods mutates the original array. ⬇️
+```js
+function ascendingOrder(arr) {
+  return arr.sort(function(a, b) {
+    return a - b;
+  });
+}
+
+ascendingOrder([1, 5, 2, 3, 4]);
+// [1, 2, 3, 4, 5]
+```
+
+If you do not want to mutate the original array, you must. ⬇️
+```js
+function nonMutatingSort(arr) {
+  return [].concat(arr).sort(function(a, b) {
+    return a - b;
+  });
+}
+
+nonMutatingSort([1, 5, 2, 3, 4]);
+// [1, 2, 3, 4, 5]
+```
+
