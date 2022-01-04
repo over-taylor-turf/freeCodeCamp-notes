@@ -34,4 +34,5 @@ let newString = newArray.join('');
 
 let capitalized = newString.charAt(0).toUpperCase() + newString.slice(1);
     // capitalized: 'Hello'
+
 ```

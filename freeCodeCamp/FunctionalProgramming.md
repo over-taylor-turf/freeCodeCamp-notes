@@ -147,3 +147,35 @@ nonMutatingSort([1, 5, 2, 3, 4]);
 // [1, 2, 3, 4, 5]
 ```
 
+## `.split()` "String" => [Array, of, Words] / [L, e, t, t, e, r, s]
+
+The `split` method splits a string into an array of strings. It takes an argument for the delimiter, which can be a character to use to break up the string or a regular expression. For example, if the delimiter is a space, you get an array of words, and if the delimiter is an empty string, you get an array of each character in the string.
+
+```js
+const str = "Hello World";
+const str2 = "Hello World,I-am code";
+
+const byWord = str.split(" ");
+  // byWord returns [ 'Hello', 'World' ]
+
+const byLetter = str.split("")
+  // byLetter returns [ 'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd' ]
+
+const onlyLetters = str2.split(/\W/);
+  // onlyLetters returns [ 'Hello', 'World', 'I', 'am', 'code' ]
+
+```
+
+⬆️ Note: `/\W/` Matches any non-word character. This includes spaces and punctuation, but not underscores.
+
+## `.join()` [Array] => "String"
+
+The `join` method is used to join the elements of an array together to create a string. It takes an argument for the delimiter that is used to separate the array elements in the string. ⬇️
+```js
+const arr = ["Hello", "World"];
+const str = arr.join(" ");
+  // str = "Hello World"
+```
+
+
+
