@@ -165,8 +165,8 @@ const onlyLetters = str2.split(/\W/);
   // onlyLetters returns [ 'Hello', 'World', 'I', 'am', 'code' ]
 
 ```
-
 ⬆️ Note: `/\W/` Matches any non-word character. This includes spaces and punctuation, but not underscores.
+
 
 ## `.join()` [Array] => "String"
 
@@ -177,5 +177,64 @@ const str = arr.join(" ");
   // str = "Hello World"
 ```
 
+## `.every()` => true / false
 
+The `every` method works with arrays to check if every element passes a particular test. It returns a Boolean value - `true` if all values meet the criteria, `false` if not.
 
+```js
+const numbers = [1, 5, 8, 0, 10, 11];
+
+numbers.every(function(currentValue) {
+  return currentValue < 10;
+});
+
+// false
+```
+
+```js
+function checkPositive(arr) {
+  return arr.every(val => val > 0);
+}
+
+checkPositive([1, 2, 3, -4, 5]);
+
+// false
+```
+
+## `.some()` => true / false
+
+The `some` method works with arrays to check if **any** element passes a particular test. It returns a Boolean value - `true` if any of the values meet the criteria, `false` if not.
+
+```js
+function checkPositive(arr) {
+  return arr.some(value => value > 0)
+}
+
+checkPositive([1, 2, 3, -4, 5]);
+// true 
+```
+
+## Currying and Partial Application
+
+The *arity* of a function is the number of arguments it requires. Currying a function means to convert a function of `N` arity into `N` functions of arity `1`.
+
+In other words, it restructures a function so it takes **one** argument, then returns another function that takes the next argument, and so on.
+
+Here's an example: ⬇️
+```js
+function unCurried(x, y) {
+  return x + y;
+}
+
+function curried(x) {
+  return function(y) {
+    return x + y;
+  }
+}
+
+const curried = x => y => x + y
+
+curried(1)(2)
+```
+
+This is useful in your program if you can't supply all the arguments to a function at one time. You can save each function call into a variable, which will hold the returned function reference that takes the next argument when it's available. 
