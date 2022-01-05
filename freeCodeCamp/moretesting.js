@@ -1,21 +1,33 @@
-function sumAll(arr) {
-
-    let total = 0; 
-
-    let sortedArray = arr.sort(function(a, b) {
-        return a - b;
-      });
-
-    let start = sortedArray[0];
-
-    let end = sortedArray[1];
-
-    for (let i = start; i <= end; i++) {
-      total += i; 
-    }
-
-    return total;
-    
-  }
+function diffArray(arr1, arr2) {
   
-  console.log(sumAll([10, 5]));
+  arr1.sort(); 
+
+  arr2.sort(); 
+
+  let longest = arr1.length >= arr2.length ? arr1 : arr2
+  let shortest = arr1.length < arr2.length ? arr1 : arr2
+
+  let newArr = [];
+  
+  for (let i = 0; i < (longest.length); i++) {
+      if (shortest.includes(longest[i])) {
+          newArr;
+    } else {
+      newArr.push(longest[i])
+    }
+  }
+
+  newArr.sort(); 
+
+  for (let i = 0; i < (shortest.length); i++) {
+    if (shortest.includes(longest[i])) {
+        newArr;
+  } else {
+    newArr.push(longest[i])
+  }
+}
+
+  return newArr; 
+}
+
+console.log(diffArray(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));
