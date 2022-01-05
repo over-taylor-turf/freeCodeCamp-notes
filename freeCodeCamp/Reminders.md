@@ -36,3 +36,16 @@ let capitalized = newString.charAt(0).toUpperCase() + newString.slice(1);
     // capitalized: 'Hello'
 
 ```
+
+## String --> Number
+
+```js
+console.log(Number(8.43521))
+    // 8.43521
+
+console.log(parseInt(8.43521))
+    // 8
+
+console.log(parseInt(8.9999))
+    // 8
+```

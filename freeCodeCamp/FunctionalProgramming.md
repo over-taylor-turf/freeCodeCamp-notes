@@ -4,7 +4,7 @@ In Functional Programming, code is organized into smaller, basic functions that 
 - Pure functions - the same input always gives the same output
 - Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled
 
-Vocabulary:
+**Vocabulary**:
 - **Callback functions** are the functions that are slipped or passed into another function to decide the invocation of that function. You may have seen them passed to other methods, for example in filter, the callback function tells JavaScript the criteria for how to filter an array.
 - **First class functions** are functions that can be assigned to a variable, passed into another function, or returned from another function just like any other normal value, are called first class functions. In JavaScript, all functions are first class functions.
 - **Higher order functions**  take a function as an argument, or return a function as a return value.
@@ -66,18 +66,6 @@ The first argument gives the index of where to begin the slice.
 The second is the index for where to end the slice (and it's non-inclusive). 
 
 If the arguments are not provided, the default is to start at the beginning of the array through the end, which is an easy way to make a copy of the entire array. The slice method does not mutate the original array, but returns a new one.
-
-<!-- Method Chaining
-```js
-const filteredList = watchList.map(movie => {
-    return {
-      title: movie.Title,
-      rating: movie.imdbRating
-    };
-  }).filter(movie => {
-    return (movie.rating) >= 8.0;
-  });
-  ``` -->
 
 
 ## `.splice()`
