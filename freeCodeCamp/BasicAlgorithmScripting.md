@@ -357,11 +357,14 @@ console.log(mutation(["hello", "hey"]));
 function chunkArrayInGroups(arr, size) {
   let arrayLength = arr.length;
   let sortedArray = []; 
+
   for (let i = 0; i < arrayLength; i += size) {
-    sortedArray.push(arr.slice(i, i + size));
+        sortedArray.push(arr.slice(i, i + size));
   }
+
   return sortedArray;
 }
 
-console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3));
 ```
+
