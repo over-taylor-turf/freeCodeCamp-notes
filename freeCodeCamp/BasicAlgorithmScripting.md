@@ -368,3 +368,23 @@ function chunkArrayInGroups(arr, size) {
 console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3));
 ```
 
+## More Complex Problem
+
+**Directions**: Complete the code for the squareList function using any combination of `map()`, `filter()`, and `reduce()`. The function should return a new array containing the squares of only the positive integers (decimal numbers are not integers) when an array of real numbers is passed to it. An example of an array of real numbers is `[-3, 4.8, 5, 3, -3.2]`, where only `5` and `3` are squared and returned as `[25, 9]`. 
+
+**Solution**:
+```js
+const squareList = arr => {
+
+  let positiveNumbers = arr.filter(num => num > -1); 
+
+  let wholeNumbers = positiveNumbers.filter(num => num % parseInt(num) === 0);
+
+  let squaredNumbers = wholeNumbers.map(num => num * num); 
+
+  return squaredNumbers;
+
+};
+
+const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+```
