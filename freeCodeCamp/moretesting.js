@@ -1,33 +1,19 @@
-function diffArray(arr1, arr2) {
+function destroyer(arr) {
   
-  arr1.sort(); 
+  let mainarray = arguments[0];
 
-  arr2.sort(); 
+  let numberOfDeletions = arguments.length;
 
-  let longest = arr1.length >= arr2.length ? arr1 : arr2
-  let shortest = arr1.length < arr2.length ? arr1 : arr2
+  let deletions = []; 
 
-  let newArr = [];
-  
-  for (let i = 0; i < (longest.length); i++) {
-      if (shortest.includes(longest[i])) {
-          newArr;
-    } else {
-      newArr.push(longest[i])
-    }
+  for (let i = 1; i < numberOfDeletions; i++) {
+    deletions.push(arguments[i])
   }
 
-  newArr.sort(); 
+ let filtered = mainarray.filter(item => !deletions.includes(item))
 
-  for (let i = 0; i < (shortest.length); i++) {
-    if (shortest.includes(longest[i])) {
-        newArr;
-  } else {
-    newArr.push(longest[i])
-  }
+  return filtered;
 }
 
-  return newArr; 
-}
-
-console.log(diffArray(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+// [1, 1]
