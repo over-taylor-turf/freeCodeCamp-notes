@@ -1,19 +1,22 @@
-function destroyer(arr) {
+function palindrome(str) {
+	const regex = /[^A-Za-z0-9]/g;
+	const newStr = str.replace(regex, '');
+	let lowercase = newStr.toLowerCase();
+	let array = lowercase.split('');
+	let arrayLength = array.length;
+  let result = false; 
+
+	for (let i = 0; i < arrayLength; i++) {
+		for (let j = arrayLength - 1; j >= 0; j--) {
+			if (array[i] === array[j]) {
+            result = true;
+            break;
+        }
+			}
+		}
   
-  let mainarray = arguments[0];
+  return result;
 
-  let numberOfDeletions = arguments.length;
-
-  let deletions = []; 
-
-  for (let i = 1; i < numberOfDeletions; i++) {
-    deletions.push(arguments[i])
-  }
-
- let filtered = mainarray.filter(item => !deletions.includes(item))
-
-  return filtered;
 }
 
-destroyer([1, 2, 3, 1, 2, 3], 2, 3);
-// [1, 1]
+console.log(palindrome('almostomla'));
