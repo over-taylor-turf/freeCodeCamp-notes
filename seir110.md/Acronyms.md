@@ -18,3 +18,6 @@ So many coding acronyms, so little time! Let's keep a list throughout our cohort
   - A command-line interface processes commands to a computer program in the form of lines of text. The program which handles the interface is called a command-line interpreter or command-line processor.
 - ✨ **ARIA** = _Accessible Rich Internet Applications_
   - An ARIA is a set of attributes you can add to HTML elements that define ways to make web content and applications accessible to users with disabilities who use assistive technologies.
+- ✨ **URL**: Universal Resource Locator
+- ✨ **HTTP**: HyperText Transfer Protocol
+- ✨ **SEO**: Search Engine Optimization
