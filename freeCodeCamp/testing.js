@@ -1,22 +1,41 @@
-var arr = [6, 89, 3, 45];
+// 🐤 Chessboard
+// Example Output:
+//  # # # #
+// # # # #
 
-console.log('The arr is: ', arr)
-    // Output: [ 6, 89, 3, 45 ]
+const chessboard = (size) => {
+	let row = '';
+	let half = Math.round(size / 2);
 
-    console.log('The maximum value of arr is: ', Math.max.apply(null, arr));     
+	for (let i = 0; i < size; i++) {
+		if (i % 2 !== 0) {
+			row += ' #'.repeat(half) + '\n';
+		} else {
+			row += '# '.repeat(half) + '\n';
+		}
+	}
 
-console.log('The ...arr is: ', ...arr)
-        // Output: 6 89 3 45
+	return row;
+};
 
-console.log('The maximum value of ...arr is: ', Math.max(...arr)); 
-
-arrCopy = [...arr]
-
-console.log('Here is a copy of the array: ', arrCopy)
+console.log(chessboard(7));
 
 
-const user = { name: 'John Doe', age: 34 };
 
-const { age } = user;
 
-console.log(age);
+
+
+// let input = [0, 1, 0, 3, 12];
+
+// function moveZeroes(arr) {
+//     for(let i = 0; i < arr.length; i++) {
+//         if (arr[i] === 0) {
+//             let zero = arr.splice(i,1)
+//             arr.push(zero)
+//         } 
+//     }
+//     return arr
+
+// }
+
+// console.log(moveZeroes(input));
