@@ -1,41 +1,44 @@
-// 🐤 Chessboard
-// Example Output:
-//  # # # #
-// # # # #
+function whatIsInAName(collection, source) {
 
-const chessboard = (size) => {
-	let row = '';
-	let half = Math.round(size / 2);
+  const arr = [];
 
-	for (let i = 0; i < size; i++) {
-		if (i % 2 !== 0) {
-			row += ' #'.repeat(half) + '\n';
-		} else {
-			row += '# '.repeat(half) + '\n';
+  let lengthOfCollection = collection.length;
+
+  let propertyNames = Object.getOwnPropertyNames(source);
+
+
+  for (let i = 0; i < lengthOfCollection; i++) {
+	  for (let j = 0; j < propertyNames.length; j++) {
+			if (collection[i].hasOwnProperty(propertyNames[j])) {
+				if (collection[i][propertyNames[j]] === source[propertyNames[j]])
+				arr.push(collection[i])
+			}
+	  }
+  }
+
+  let uniqueEntries = [];
+
+	arr.forEach((c) => {
+		if (!uniqueEntries.includes(c)) {
+			uniqueEntries.push(c);
 		}
+	});
+
+//   let result = arr.reduce((a, b ) => a && b);
+
+	let finalResult = []; 
+
+	for (let k = 0; k < uniqueEntries.length; k++) {
+		if (Object.getOwnPropertyNames(uniqueEntries[k]) === propertyNames) {
+			finalResult.push(uniqueEntries[k])
+		}
+		return finalResult;
 	}
 
-	return row;
-};
+	return finalResult;
+}
 
-console.log(chessboard(7));
-
-
-
-
-
-
-// let input = [0, 1, 0, 3, 12];
-
-// function moveZeroes(arr) {
-//     for(let i = 0; i < arr.length; i++) {
-//         if (arr[i] === 0) {
-//             let zero = arr.splice(i,1)
-//             arr.push(zero)
-//         } 
-//     }
-//     return arr
-
-// }
-
-// console.log(moveZeroes(input));
+console.log(whatIsInAName(
+	[{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], 
+	{ "apple": 1, "bat": 2 }
+	));

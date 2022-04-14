@@ -97,5 +97,19 @@ For example, if the first argument is `[{ first: "Romeo", last: "Montague" }, { 
 
 **Solution**: 
 ```js
+function whatIsInAName(collection, source) {
+
+  const arr = [];
+
+  let source2 = [source]
+
+  let filtered = collection.filter(item => !source2.includes(item))
+
+  console.log(filtered)
+
+  return arr;
+}
+
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
 
 ```

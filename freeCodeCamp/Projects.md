@@ -1,6 +1,15 @@
+
+# Final Projects
+
+## 🔥 Palindrome Checker
+
+**Directions**: Return `true` if the given string is a palindrome. Otherwise, return false. A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.
+
+**Solution**:
+```js
 function palindrome(str) {
 
-  // get rid of white space, numbers, punctuation, and uppercase letters
+  // get rid of punctuation, white spaces and symbols
   const regex = /[^A-Za-z0-9]/g;
 	const newStr = str.replace(regex, '');
 	let lowercase = newStr.toLowerCase();
@@ -22,3 +31,4 @@ function palindrome(str) {
 }
 
 console.log(palindrome('not a palindrome'));
+```
